@@ -8,7 +8,7 @@ int main()
         printf("0\n");
     }else{
         int left=0,right=m,answer=0;
-        while(left<+right){
+        while(left<=right){
             int mid=(left+right)/2;
             int result=simulate(n,departureStation,mid);
             if(result==m){
