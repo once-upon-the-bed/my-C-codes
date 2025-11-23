@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//--------------------------------------
 int main() {
     // 步骤1：声明指针变量
     int *arr;  // arr是一个指针，将来指向一块内存
@@ -26,9 +26,73 @@ int main() {
     
     return 0;
 }
+//---------------------------------------
 
+//--------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    // === 第一步：准备指针 ===
+    int *arr = NULL;    // 先让指针不指向任何地方
+    int capacity = 5;   // 初始容量
+    int count = 0;      // 当前存储了多少个数
+    
+    // === 第二步：分配内存 ===
+    arr = (int*)malloc(capacity * sizeof(int));
+    // 现在arr指向一块能存放5个整数的内存
+    
+    if(arr == NULL) {
+        printf("内存分配失败\n");
+        return 1;
+    }
+    
+    // === 第三步：使用内存 ===
+    printf("请输入数字（输入0结束）：\n");
+    int num;
+    
+    while(1) {
+        scanf("%d", &num);
+        if(num == 0) break;
+        
+        // 检查是否需要扩展
+        if(count >= capacity) {
+            printf("需要扩展内存...\n");
+            capacity = capacity * 2;  // 容量翻倍
+            
+            // 重新分配更大的内存
+            int *new_memory = (int*)realloc(arr, capacity * sizeof(int));
+            
+            if(new_memory == NULL) {
+                printf("扩展失败！\n");
+                free(arr);  // 释放原来的内存
+                return 1;
+            }
+            
+            arr = new_memory;  // 让arr指向新的内存
+            printf("扩展成功！新容量：%d\n", capacity);
+        }
+        
+        // 存储数字
+        arr[count] = num;  // 像使用数组一样使用指针
+        count++;
+    }
+    
+    // === 第四步：输出结果 ===
+    printf("你输入的数字是：");
+    for(int i = 0; i < count; i++) {
+        printf("%d ", arr[i]);  // 像使用数组一样使用指针
+    }
+    printf("\n");
+    
+    // === 第五步：释放内存 ===
+    free(arr);  // 重要：必须释放！
+    arr = NULL; // 好习惯：释放后让指针不指向任何地方
+    
+    return 0;
+}
+//---------------------------------------------
 
-
+//-----------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>  // 必须包含这个头文件
 int main() {
@@ -117,6 +181,10 @@ if(指针名 == NULL) { 错误处理 }
     if(指针名 == NULL) { 错误处理 }
 }
 */
+//---------------------------------------------------------------
+
+
+//--------------------------------------------------------------------
 //必背格式
 #include <stdio.h>
 #include <stdlib.h>  // 必须包含这个头文件
@@ -151,6 +219,11 @@ int main() {
     
     return 0;
 }
+//----------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------
 //完整示例
 #include <stdio.h>
 #include <stdlib.h>
@@ -185,8 +258,13 @@ int main() {
         arr[count] = num;
         count++;
     }
-    //完整实例：动态数组的实现
-  #include <stdio.h>
+//--------------------------------------------------------
+
+
+
+//------------------------------------------------
+//完整实例：动态数组的实现
+#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
