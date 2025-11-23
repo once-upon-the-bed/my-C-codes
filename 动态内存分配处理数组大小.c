@@ -1,6 +1,36 @@
 #include <stdio.h>
-#include <stdlib.h>  // 必须包含这个头文件
+#include <stdlib.h>
 
+int main() {
+    // 步骤1：声明指针变量
+    int *arr;  // arr是一个指针，将来指向一块内存
+    
+    // 步骤2：分配内存
+    arr = (int*)malloc(10 * sizeof(int));
+    // 解释：
+    // malloc(10 * sizeof(int)) - 申请能存放10个整数的内存
+    // (int*) - 告诉编译器"这块内存用来存放整数"
+    // arr = ... - 让arr指针指向这块内存的起始位置
+    
+    // 步骤3：使用分配的内存
+    // 现在arr指向一块可以存放10个整数的内存
+    // 我们可以像使用数组一样使用它：
+    arr[0] = 1;    // 第一个位置放1
+    arr[1] = 2;    // 第二个位置放2
+    // 这等价于：
+    // *arr = 1;           // 第一个位置
+    // *(arr + 1) = 2;     // 第二个位置
+    
+    // 步骤4：释放内存
+    free(arr);  // 告诉系统"这块内存我不用了"
+    
+    return 0;
+}
+
+
+
+#include <stdio.h>
+#include <stdlib.h>  // 必须包含这个头文件
 int main() {
     // 1. 初始容量设置
     int capacity = 10;  // 初始容量，我们先分配能存储10个整数的空间
