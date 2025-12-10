@@ -18,7 +18,6 @@ int main()
         printf("%d",array[i]);
         flag=1;
     }printf("\n");
-    printf("\n");
     int move=selection_sort(array,number);
     flag=0;
     for(int i=0;i<number;i++){
@@ -31,7 +30,7 @@ int main()
     printf("%d",move);
     return 0;
 }
-int selcetion_sort(int array[],int n){
+int selection_sort(int array[],int n){
     int move=0;
     for(int i=0;i<n-1;i++){
         int min_value=array[i];
