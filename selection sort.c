@@ -27,18 +27,17 @@ int main()
 int selection_sort(int array[],int n){
     int move=0;
     for(int i=0;i<n-1;i++){
-        int min_value=array[i];
-        int min_location=i;
+        int min=i;
         for(int j=i+1;j<n;j++){
-            if(array[j]<min_value){
-                min_value=array[j];
-                min_location=j;
+            if(array[j]<array[min]){
+                array[min]=array[j];
+                min=j;
             }
         }
-        if(min_value<array[i]){
+        if(array[min]<array[i]){
             int temp=array[i];
-            array[i]=min_value;
-            array[min_location]=temp;
+            array[i]=array[min];
+            array[min]=temp;
             move++;
         }
     }
