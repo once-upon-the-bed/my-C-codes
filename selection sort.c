@@ -3,6 +3,7 @@
 # include<time.h>
 # define number 10
 int selection_sort(int [],int);
+void print_array(int [],int);
 int main()
 {
     srand(time(NULL));
@@ -19,14 +20,7 @@ int main()
         flag=1;
     }printf("\n");
     int move=selection_sort(array,number);
-    flag=0;
-    for(int i=0;i<number;i++){
-        if(flag){
-            printf(" ");
-        }
-        printf("%d",array[i]);
-        flag=1;
-    }printf("\n");
+    print_array(array,number);
     printf("%d",move);
     return 0;
 }
@@ -49,4 +43,14 @@ int selection_sort(int array[],int n){
         }
     }
     return move;
+}
+void print_array(int array[],int n){
+    int flag=0;
+    for(int i=0;i<n;i++){
+        if(flag){
+            printf(" ");
+        }
+        printf("%d",array[i]);
+        flag=1;
+    }printf("\n");
 }
