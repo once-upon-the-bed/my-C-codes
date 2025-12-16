@@ -50,6 +50,7 @@ int optimized_bubble_sort(int array[],int n){
             }
         }
     }
+    return move;
 }
 void print_array(int array[],int n){
     int flag=0;
