@@ -20,7 +20,7 @@ int main()
         flag=1;
     }printf("\n");
     int move=bubble_sort(array,number);
-    printf_array(array,number);
+    print_array(array,number);
     printf("%d",move);
     return 0;
 }
