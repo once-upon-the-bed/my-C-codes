@@ -30,11 +30,10 @@ int selection_sort(int array[],int n){
         int min=i;
         for(int j=i+1;j<n;j++){
             if(array[j]<array[min]){
-                array[min]=array[j];
                 min=j;
             }
         }
-        if(array[min]<array[i]){
+        if(min>i){
             int temp=array[i];
             array[i]=array[min];
             array[min]=temp;
