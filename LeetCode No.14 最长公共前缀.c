@@ -3,9 +3,9 @@ char* longestCommonPrefix(char** strs,int strsSize){
         return "";
     }
     int j;
+    int flag=1;
     for(j=0;strs[0][j]!='\0';j++){
         char c=strs[0][j];
-        int flag=1;
         for(int i=1;i<strsSize;i++){
             if(strs[i][j]!=c){
                 flag=0;
